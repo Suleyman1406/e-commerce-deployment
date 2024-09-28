@@ -17,14 +17,11 @@ const ClientLayout = async ({ children }: PropsWithChildren) => {
       externalId: userId!,
     },
   });
-  if (!user) {
-    clerkClient().sessions.revokeSession(sessionId!);
-    return;
-  }
 
+  if (!user) return;
   const cart = await prisma.cart.findUnique({
     where: {
-      userId: user!.id,
+      userId: user.id,
     },
     include: {
       items: {
