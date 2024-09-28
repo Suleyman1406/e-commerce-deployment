@@ -18,9 +18,8 @@ const ClientLayout = async ({ children }: PropsWithChildren) => {
     },
   });
   if (!user) {
-    console.log('User not found');
-
     clerkClient().sessions.revokeSession(sessionId!);
+    return;
   }
 
   const cart = await prisma.cart.findUnique({
