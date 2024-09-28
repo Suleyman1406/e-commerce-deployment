@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import { UploadButton } from '@/utils/uploadthing';
 import { zodResolver } from '@hookform/resolvers/zod';
